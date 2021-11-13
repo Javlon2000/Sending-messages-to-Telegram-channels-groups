@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "app/proto";
+
+service SendMessageService {
+	rpc SendMessage(Request) returns (Response) {}
+}
+
+message Request {
+	string text = 1;
+	string priority = 2;
+}
+
+message Response {}

@@ -1,0 +1,40 @@
+basePath: /
+definitions:
+  main.Message:
+    properties:
+      priority:
+        type: string
+      text:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: Telegram Bot which sends messages to channels and groups
+  title: Message Sender Bot
+  version: "1.0"
+paths:
+  /send:
+    post:
+      consumes:
+      - application/json
+      description: Send Message
+      operationId: message_sender
+      parameters:
+      - description: message info
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/main.Message'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+        "400":
+          description: ""
+      summary: MessageSender
+      tags:
+      - sender
+swagger: "2.0"
